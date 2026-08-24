@@ -14,13 +14,21 @@ def show_folder_path(folder_path):
     print(f"Root folder: {folder_path.absolute()}")
 
 
+def show_total_sub_folders(all_items):
+    sub_folders = [item for item in all_items if item.is_dir()]
+    print(f"Total subfolders: {len(sub_folders)}")
+
+
 def analyze_folder(path):
     folder_path = Path(path)
 
     validate_folder(folder_path)
 
+    all_items = list(folder_path.rglob('*'))
+
     print("\n" + "=" * 40)
     show_folder_path(folder_path)
+    show_total_sub_folders(all_items)
 
 
 if __name__ == "__main__":
