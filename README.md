@@ -12,9 +12,9 @@ A lightweight Python command-line tool for analyzing a directory and counting it
 - Handle files without an extension.
 - Use only Python's standard library.
 
-## Requirements
+## Current Requirements
 
-- Python 3.8 or later
+- Python 3.14
 
 ## Usage
 
