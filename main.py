@@ -10,10 +10,17 @@ def validate_folder(folder_path):
         return
 
 
+def show_folder_path(folder_path):
+    print(f"Root folder: {folder_path.absolute()}")
+
+
 def analyze_folder(path):
     folder_path = Path(path)
 
     validate_folder(folder_path)
+
+    print("\n" + "=" * 40)
+    show_folder_path(folder_path)
 
 
 if __name__ == "__main__":
