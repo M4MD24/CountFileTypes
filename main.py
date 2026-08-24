@@ -23,17 +23,29 @@ def show_total_files(files):
     print(f"Total files: {len(files)}")
 
 
+def show_total_file_extensions(files):
+    extensions = set()
+    for file in files:
+        ext = file.suffix.lower()
+        if ext == '':
+            ext = '(no extension)'
+        extensions.add(ext)
+    print(f"Total file extensions: {len(extensions)}")
+
+
 def analyze_folder(path):
     folder_path = Path(path)
 
     validate_folder(folder_path)
 
     all_items = list(folder_path.rglob('*'))
+    files = [item for item in all_items if item.is_file()]
 
     print("\n" + "=" * 40)
     show_folder_path(folder_path)
     show_total_sub_folders(all_items)
     show_total_files(all_items)
+    show_total_file_extensions(files)
 
 
 if __name__ == "__main__":
