@@ -19,6 +19,10 @@ def show_total_sub_folders(all_items):
     print(f"Total subfolders: {len(sub_folders)}")
 
 
+def show_total_files(files):
+    print(f"Total files: {len(files)}")
+
+
 def analyze_folder(path):
     folder_path = Path(path)
 
@@ -29,6 +33,7 @@ def analyze_folder(path):
     print("\n" + "=" * 40)
     show_folder_path(folder_path)
     show_total_sub_folders(all_items)
+    show_total_files(all_items)
 
 
 if __name__ == "__main__":
