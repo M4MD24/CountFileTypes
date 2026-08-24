@@ -1,4 +1,5 @@
 from pathlib import Path
+from collections import Counter
 
 
 def validate_folder(folder_path):
@@ -33,6 +34,21 @@ def show_total_file_extensions(files):
     print(f"Total file extensions: {len(extensions)}")
 
 
+def show_total_file_extensions_distributions(files):
+    extension_counter = Counter()
+    for file in files:
+        ext = file.suffix.lower()
+        if ext == '':
+            ext = '(no extension)'
+        extension_counter[ext] += 1
+    if extension_counter:
+        print("File extension distribution:")
+        for ext, count in extension_counter.most_common():
+            print(f"{ext} : {count} file(s)")
+    else:
+        print("No files found in this folder or its subfolders.")
+
+
 def analyze_folder(path):
     folder_path = Path(path)
 
@@ -46,6 +62,9 @@ def analyze_folder(path):
     show_total_sub_folders(all_items)
     show_total_files(all_items)
     show_total_file_extensions(files)
+    print("-" * 40)
+    show_total_file_extensions_distributions(files)
+    print("=" * 40)
 
 
 if __name__ == "__main__":
