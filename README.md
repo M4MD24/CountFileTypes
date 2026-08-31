@@ -21,7 +21,7 @@ A lightweight Python command-line tool for analyzing a directory and counting it
 Run the program:
 
 ```bash
-python main.py
+python CountFileTypes.py
 ```
 
 Enter the path of the directory you want to analyze when prompted.
